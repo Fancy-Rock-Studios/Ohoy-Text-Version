@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Text.RegularExpressions;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using System.Threading;
 
-namespace Ohoy__Combat_Prototype
+namespace Ohoy_Text_Version
 {
     //Player Class
     class Player
@@ -34,22 +31,6 @@ namespace Ohoy__Combat_Prototype
         public bool IsAttacked;
         public int CurrentAttackIndex = 0;
         public string Name;
-    }
-
-    //Sprite Class
-    class Sprite
-    {
-        public char[,] CharacterMap;
-        public int Width;
-        public int Height;
-        public ConsoleColor Color = ConsoleColor.White;
-
-        public Sprite(int width, int height)
-        {
-            Width = width;
-            Height = height;
-            CharacterMap = new char[Width, Height];
-        }
     }
 
     //Weapon Class
@@ -91,8 +72,6 @@ namespace Ohoy__Combat_Prototype
         static Enemy GiantCrab;
         static Enemy CurrentEnemy;
 
-        static Random random = new Random();
-
         #region Initialize Objects
 
         static void InitializeArena()
@@ -105,10 +84,10 @@ namespace Ohoy__Combat_Prototype
         static void InitializeEnemies()
         {
             GiantCrab = new Enemy();
-            GiantCrab.IdleSprite = ReadSprite("Sprites/Enemies/GiantCrabIdle.txt");
-            GiantCrab.AttackSprites.Add(ReadSprite("Sprites/Enemies/GiantCrabAttack1.txt"));
-            GiantCrab.AttackSprites.Add(ReadSprite("Sprites/Enemies/GiantCrabAttack2.txt"));
-            GiantCrab.AttackSprites.Add(ReadSprite("Sprites/Enemies/GiantCrabAttack3.txt"));
+            GiantCrab.IdleSprite = ReadSpriteCombat("Sprites/Enemies/GiantCrabIdle.txt");
+            GiantCrab.AttackSprites.Add(ReadSpriteCombat("Sprites/Enemies/GiantCrabAttack1.txt"));
+            GiantCrab.AttackSprites.Add(ReadSpriteCombat("Sprites/Enemies/GiantCrabAttack2.txt"));
+            GiantCrab.AttackSprites.Add(ReadSpriteCombat("Sprites/Enemies/GiantCrabAttack3.txt"));
             GiantCrab.AttackTime = TimeSpan.FromSeconds(2);
             GiantCrab.MovementTime = TimeSpan.FromSeconds(0.5);
             GiantCrab.Name = "The Giant Crab";
@@ -117,8 +96,8 @@ namespace Ohoy__Combat_Prototype
             GiantCrab.Hint = "The Giant Crab is the most powerful and dangerous enemy in the ASCII-Sea. Weaken it with well aimed shots from your flintlock, then go in for the kill!";
 
             Seaweed = new Enemy();
-            Seaweed.IdleSprite = ReadSprite("Sprites/Enemies/SeaweedIdle.txt");
-            Seaweed.AttackSprites.Add(ReadSprite("Sprites/Enemies/SeaweedAttack.txt"));
+            Seaweed.IdleSprite = ReadSpriteCombat("Sprites/Enemies/SeaweedIdle.txt");
+            Seaweed.AttackSprites.Add(ReadSpriteCombat("Sprites/Enemies/SeaweedAttack.txt"));
             Seaweed.AttackTime = TimeSpan.FromSeconds(1);
             Seaweed.MovementTime = TimeSpan.FromSeconds(1.2);
             Seaweed.Name = "Slimy Seaweed";
@@ -127,8 +106,8 @@ namespace Ohoy__Combat_Prototype
             Seaweed.Hint = "The Seaweed is the only stationary enemy in the ASCII-Sea. Avoid getting slapped by it, and you'll be fine.";
 
             Bat = new Enemy();
-            Bat.IdleSprite = ReadSprite("Sprites/Enemies/Bat.txt");
-            Bat.AttackSprites.Add(ReadSprite("Sprites/Enemies/Bat.txt"));
+            Bat.IdleSprite = ReadSpriteCombat("Sprites/Enemies/Bat.txt");
+            Bat.AttackSprites.Add(ReadSpriteCombat("Sprites/Enemies/Bat.txt"));
             Bat.AttackTime = TimeSpan.FromSeconds(1);
             Bat.MovementTime = TimeSpan.FromSeconds(0.2);
             Bat.Name = "Ferocious Bat";
@@ -137,8 +116,8 @@ namespace Ohoy__Combat_Prototype
             Bat.Hint = "The Bat is the quickest, but weakest enemy in the ASCII-Sea. Try to fight fire with fire, by using a quick weapon, or use the slow but powerful Boat Axe for a quick kill!";
 
             Mimic = new Enemy();
-            Mimic.IdleSprite = ReadSprite("Sprites/Enemies/MimicIdle.txt");
-            Mimic.AttackSprites.Add(ReadSprite("Sprites/Enemies/MimicAttack.txt"));
+            Mimic.IdleSprite = ReadSpriteCombat("Sprites/Enemies/MimicIdle.txt");
+            Mimic.AttackSprites.Add(ReadSpriteCombat("Sprites/Enemies/MimicAttack.txt"));
             Mimic.AttackTime = TimeSpan.FromSeconds(1.3);
             Mimic.MovementTime = TimeSpan.FromSeconds(1.3);
             Mimic.Name = "Sneaky Mimic";
@@ -147,8 +126,8 @@ namespace Ohoy__Combat_Prototype
             Mimic.Hint = "The Mimic is a slow, but devious opponent. The Boat Axe is a good choice against this fiend, but don't get caught off guard by it!";
 
             Skeleton = new Enemy();
-            Skeleton.IdleSprite = ReadSprite("Sprites/Enemies/SkeletonIdle.txt");
-            Skeleton.AttackSprites.Add(ReadSprite("Sprites/Enemies/SkeletonAttack.txt"));
+            Skeleton.IdleSprite = ReadSpriteCombat("Sprites/Enemies/SkeletonIdle.txt");
+            Skeleton.AttackSprites.Add(ReadSpriteCombat("Sprites/Enemies/SkeletonAttack.txt"));
             Skeleton.AttackTime = TimeSpan.FromSeconds(1);
             Skeleton.MovementTime = TimeSpan.FromSeconds(1);
             Skeleton.Name = "Undead Skeleton";
@@ -157,10 +136,10 @@ namespace Ohoy__Combat_Prototype
             Skeleton.Hint = "The Skeleton uses a Cutlass to fight you. Keep this in mind, as you fight it. Know your tools, and slay it!";
 
             StoneGolem = new Enemy();
-            StoneGolem.IdleSprite = ReadSprite("Sprites/Enemies/StoneGolemIdle.txt");
-            StoneGolem.AttackSprites.Add(ReadSprite("Sprites/Enemies/StoneGolemAttack1.txt"));
-            StoneGolem.AttackSprites.Add(ReadSprite("Sprites/Enemies/StoneGolemAttack2.txt"));
-            StoneGolem.AttackSprites.Add(ReadSprite("Sprites/Enemies/StoneGolemAttack3.txt"));
+            StoneGolem.IdleSprite = ReadSpriteCombat("Sprites/Enemies/StoneGolemIdle.txt");
+            StoneGolem.AttackSprites.Add(ReadSpriteCombat("Sprites/Enemies/StoneGolemAttack1.txt"));
+            StoneGolem.AttackSprites.Add(ReadSpriteCombat("Sprites/Enemies/StoneGolemAttack2.txt"));
+            StoneGolem.AttackSprites.Add(ReadSpriteCombat("Sprites/Enemies/StoneGolemAttack3.txt"));
             StoneGolem.AttackTime = TimeSpan.FromSeconds(3);
             StoneGolem.MovementTime = TimeSpan.FromSeconds(3);
             StoneGolem.Name = "Mighty Stone Golem";
@@ -172,8 +151,8 @@ namespace Ohoy__Combat_Prototype
         static void InitializeWeapons()
         {
             BoatAxe = new Weapon();
-            BoatAxe.IdleSprite = ReadSprite("Sprites/Weapons/AxeIdle.txt");
-            BoatAxe.AttackSprite = ReadSprite("Sprites/Weapons/AxeAttack.txt");
+            BoatAxe.IdleSprite = ReadSpriteCombat("Sprites/Weapons/AxeIdle.txt");
+            BoatAxe.AttackSprite = ReadSpriteCombat("Sprites/Weapons/AxeAttack.txt");
             BoatAxe.AttackTime = TimeSpan.FromSeconds(2);
             BoatAxe.Ammo = 1;
             BoatAxe.Damage = 50;
@@ -181,8 +160,8 @@ namespace Ohoy__Combat_Prototype
             BoatAxe.Description = "This weapon has some heavy strength, but it's speed is sluggish, and will leave you vulnerable.";
 
             Dagger = new Weapon();
-            Dagger.IdleSprite = ReadSprite("Sprites/Weapons/DaggerIdle.txt");
-            Dagger.AttackSprite = ReadSprite("Sprites/Weapons/DaggerAttack.txt");
+            Dagger.IdleSprite = ReadSpriteCombat("Sprites/Weapons/DaggerIdle.txt");
+            Dagger.AttackSprite = ReadSpriteCombat("Sprites/Weapons/DaggerAttack.txt");
             Dagger.AttackTime = TimeSpan.FromSeconds(0.5);
             Dagger.Ammo = 1;
             Dagger.Damage = 10;
@@ -190,8 +169,8 @@ namespace Ohoy__Combat_Prototype
             Dagger.Description = "A dagger, covered in rust. It won't hurt much, but you'll be able to hit quickly.";
 
             Cutlass = new Weapon();
-            Cutlass.IdleSprite = ReadSprite("Sprites/Weapons/CutlassIdle.txt");
-            Cutlass.AttackSprite = ReadSprite("Sprites/Weapons/CutlassAttack.txt");
+            Cutlass.IdleSprite = ReadSpriteCombat("Sprites/Weapons/CutlassIdle.txt");
+            Cutlass.AttackSprite = ReadSpriteCombat("Sprites/Weapons/CutlassAttack.txt");
             Cutlass.AttackTime = TimeSpan.FromSeconds(1);
             Cutlass.Ammo = 1;
             Cutlass.Damage = 30;
@@ -199,8 +178,8 @@ namespace Ohoy__Combat_Prototype
             Cutlass.Description = "A classic weapon, and a trusty choice in defeating your opponents.";
 
             Flintlock = new Weapon();
-            Flintlock.IdleSprite = ReadSprite("Sprites/Weapons/FlintlockIdle.txt");
-            Flintlock.AttackSprite = ReadSprite("Sprites/Weapons/FlintlockAttack.txt");
+            Flintlock.IdleSprite = ReadSpriteCombat("Sprites/Weapons/FlintlockIdle.txt");
+            Flintlock.AttackSprite = ReadSpriteCombat("Sprites/Weapons/FlintlockAttack.txt");
             Flintlock.AttackTime = TimeSpan.FromSeconds(1);
             Flintlock.Ammo = 12;
             Flintlock.Damage = 50;
@@ -211,11 +190,11 @@ namespace Ohoy__Combat_Prototype
         static void InitializePlayer()
         {
             Player = new Player();
-            Player.Sprite = ReadSprite("Sprites/Player/Player.txt");
+            Player.Sprite = ReadSpriteCombat("Sprites/Player/Player.txt");
             Player.HP = 500;
         }
 
-        static Sprite ReadSprite(string path)
+        static Sprite ReadSpriteCombat(string path)
         {
             string[] spriteLines = File.ReadAllLines(path);
 
@@ -704,7 +683,7 @@ namespace Ohoy__Combat_Prototype
             }
         }
 
-        static void Main(string[] args)
+        static bool MainCombat()
         {
             //Initialize All Objects
             InitializeArena();
@@ -724,28 +703,37 @@ namespace Ohoy__Combat_Prototype
             CurrentWeapon = Cutlass;
             CurrentWeapon.Position = Player.Position;
 
-            int currentEnemy = random.Next(0, 100);
-            
-            if (currentEnemy <= 30)
+            if (OnTreasureIsland)
             {
-                CurrentEnemy = Skeleton;
+                CurrentEnemy = GiantCrab;
             }
-            else if (currentEnemy <= 60 && currentEnemy >= 31)
+            else
             {
-                CurrentEnemy = Bat;
+                int currentEnemyRoll = random.Next(0, 100);
+
+                if (currentEnemyRoll <= 30)
+                {
+                    CurrentEnemy = Skeleton;
+                }
+                else if (currentEnemyRoll <= 60 && currentEnemyRoll >= 31)
+                {
+                    CurrentEnemy = Bat;
+                }
+                else if (currentEnemyRoll <= 80 && currentEnemyRoll >= 61)
+                {
+                    CurrentEnemy = Seaweed;
+                }
+                else if (currentEnemyRoll <= 95 && currentEnemyRoll >= 81)
+                {
+                    CurrentEnemy = Mimic;
+                }
+                else if (currentEnemyRoll >= 96)
+                {
+                    CurrentEnemy = StoneGolem;
+                }
             }
-            else if (currentEnemy <= 80 && currentEnemy >= 61)
-            {
-                CurrentEnemy = Seaweed;
-            }
-            else if (currentEnemy <= 95 && currentEnemy >= 81)
-            {
-                CurrentEnemy = Mimic;
-            }
-            else if (currentEnemy >=96)
-            {
-                CurrentEnemy = StoneGolem;
-            }
+
+
 
             CurrentEnemy.Position = new Point(80, ArenaHeight / 2 - CurrentEnemy.IdleSprite.Height / 2);
 
@@ -960,29 +948,27 @@ namespace Ohoy__Combat_Prototype
 
             if (Player.HP <= 0)
             {
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine("GAME OVER. You have been slain by the dangerous enemies of the ASCII-Sea. Your mother would be really disappointed in you, if she even showed up to your funeral.");
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine($"{CurrentEnemy.Hint}");
-            }
-            if (CurrentEnemy.HP <= 0 && CurrentEnemy != GiantCrab)
-            {
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine("YARRRGH! You have emerged victorious! You have recieved a clue for your brave actions during combat!");
+                return false;
             }
             else
             {
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine("YARRRGH! You have slain King Crab, the Guardian of the Treasure! Victory is yours!");
+                if (CurrentEnemy != GiantCrab)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("YARRRGH! You have emerged victorious! You have recieved a clue for your brave actions during combat!");
+                }
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("YARRRGH! You have slain King Crab, the Guardian of the Treasure! Victory is yours!");
+                }
+                Console.ReadKey(true);
+                return true;
             }
-            Console.ReadKey();
         }
     }
 }
