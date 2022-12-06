@@ -1,0 +1,111 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Ohoy__Combat_Prototype</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Sprites\Enemies\Bat.txt" />
+    <None Remove="Sprites\Enemies\GiantCrabAttack1.txt" />
+    <None Remove="Sprites\Enemies\GiantCrabAttack2.txt" />
+    <None Remove="Sprites\Enemies\GiantCrabAttack3.txt" />
+    <None Remove="Sprites\Enemies\GiantCrabIdle.txt" />
+    <None Remove="Sprites\Enemies\MimicAttack.txt" />
+    <None Remove="Sprites\Enemies\MimicIdle.txt" />
+    <None Remove="Sprites\Enemies\SeaweedAttack.txt" />
+    <None Remove="Sprites\Enemies\SeaweedIdle.txt" />
+    <None Remove="Sprites\Enemies\SkeletonAttack.txt" />
+    <None Remove="Sprites\Enemies\SkeletonIdle.txt" />
+    <None Remove="Sprites\Enemies\StoneGolemAttack1.txt" />
+    <None Remove="Sprites\Enemies\StoneGolemAttack2.txt" />
+    <None Remove="Sprites\Enemies\StoneGolemAttack3.txt" />
+    <None Remove="Sprites\Enemies\StoneGolemIdle.txt" />
+    <None Remove="Sprites\Player\Player.txt" />
+    <None Remove="Sprites\Weapons\AxeAttack.txt" />
+    <None Remove="Sprites\Weapons\AxeIdle.txt" />
+    <None Remove="Sprites\Weapons\CutlassAttack.txt" />
+    <None Remove="Sprites\Weapons\CutlassIdle.txt" />
+    <None Remove="Sprites\Weapons\DaggerAttack.txt" />
+    <None Remove="Sprites\Weapons\DaggerIdle.txt" />
+    <None Remove="Sprites\Weapons\FlintlockAttack.txt" />
+    <None Remove="Sprites\Weapons\FlintlockIdle.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Sprites\Enemies\Bat.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Enemies\GiantCrabAttack1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Enemies\GiantCrabAttack2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Enemies\GiantCrabAttack3.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Enemies\GiantCrabIdle.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Enemies\MimicAttack.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Enemies\MimicIdle.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Enemies\SeaweedAttack.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Enemies\SeaweedIdle.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Enemies\SkeletonAttack.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Enemies\SkeletonIdle.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Enemies\StoneGolemAttack1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Enemies\StoneGolemAttack2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Enemies\StoneGolemAttack3.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Enemies\StoneGolemIdle.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Player\Player.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Weapons\AxeAttack.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Weapons\AxeIdle.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Weapons\CutlassAttack.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Weapons\CutlassIdle.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Weapons\DaggerAttack.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Weapons\DaggerIdle.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Weapons\FlintlockAttack.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\Weapons\FlintlockIdle.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
