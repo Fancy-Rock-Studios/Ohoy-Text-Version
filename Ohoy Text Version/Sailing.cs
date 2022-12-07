@@ -194,13 +194,18 @@ namespace Ohoy_Text_Version
             while (true)
             {
                 Point islandPoint = new Point(random.Next(AsciiSeaMap.Width - 20), random.Next(AsciiSeaMap.Height - 20));
-                bool doesOverlap = DoesOverlapIsland(islandPoint, 30, out _);
-                if (!doesOverlap)
+                if (!(islandPoint.X > PlayerShip.Position.X + PlayerShip.ShipCenter.X - 20 && islandPoint.X < PlayerShip.Position.X + PlayerShip.ShipCenter.X + 5 && islandPoint.Y > PlayerShip.Position.Y + PlayerShip.ShipCenter.Y - 20 && islandPoint.Y < PlayerShip.Position.Y + PlayerShip.ShipCenter.Y + 5))
                 {
-                    return islandPoint;
+                    bool doesOverlap = DoesOverlapIsland(islandPoint, 30, out _);
+                    if (!doesOverlap)
+                    {
+                        return islandPoint;
+                    }
                 }
+
             }
         }
+
         static bool DeclareTreasureIsland(Island firstIsland)
         {
             while (true)
