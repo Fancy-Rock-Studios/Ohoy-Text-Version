@@ -453,7 +453,7 @@ namespace Ohoy_Text_Version
         /// </summary>
         /// <param name="sprite"></param>
         /// <param name="position"></param>
-        static void DrawSprite(Sprite sprite, Point position)
+        static void DrawSpriteSailing(Sprite sprite, Point position)
         {
             for (int y = 0; y < sprite.Height; y++)
             {
@@ -474,7 +474,7 @@ namespace Ohoy_Text_Version
         static void DrawShip()
         {
             Sprite currentShipSprite = PlayerShip.Sprites[PlayerShip.CardinalDirection];
-            DrawSprite(currentShipSprite, PlayerShip.Position);
+            DrawSpriteSailing(currentShipSprite, PlayerShip.Position);
         }
         static void DrawIsland(Island island)
         {

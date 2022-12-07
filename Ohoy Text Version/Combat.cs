@@ -181,10 +181,10 @@ namespace Ohoy_Text_Version
             Flintlock.IdleSprite = ReadSpriteCombat("Sprites/Weapons/FlintlockIdle.txt");
             Flintlock.AttackSprite = ReadSpriteCombat("Sprites/Weapons/FlintlockAttack.txt");
             Flintlock.AttackTime = TimeSpan.FromSeconds(1);
-            Flintlock.Ammo = 12;
-            Flintlock.Damage = 50;
+            Flintlock.Ammo = 1;
+            Flintlock.Damage = 75;
             Flintlock.Name = "Sinclair's Flintlock";
-            Flintlock.Description = "A flintlock pistol, taken from the corpse of your rival, Sinclair. It only has twelve bullets.";
+            Flintlock.Description = "A flintlock pistol, taken from the corpse of your rival, Sinclair. It only has one bullet.";
         }
 
         static void InitializePlayer()
@@ -252,7 +252,7 @@ namespace Ohoy_Text_Version
         }
 
         //Draw Sprite
-        static void DrawSprite(Sprite sprite, Point position, ConsoleColor? color = null)
+        static void DrawSpriteCombat(Sprite sprite, Point position, ConsoleColor? color = null)
         {
             if (color.HasValue)
             {
@@ -334,13 +334,13 @@ namespace Ohoy_Text_Version
             {
                 ConsoleColor? color = Player.IsAttacked ? ConsoleColor.DarkRed : null;
 
-                DrawSprite(Player.Sprite, Player.Position, color);
-                DrawSprite(CurrentWeapon.IdleSprite, Player.Position, color);
+                DrawSpriteCombat(Player.Sprite, Player.Position, color);
+                DrawSpriteCombat(CurrentWeapon.IdleSprite, Player.Position, color);
             }
             else
             {
-                DrawSprite(Player.Sprite, Player.Position);
-                DrawSprite(CurrentWeapon.AttackSprite, Player.Position);
+                DrawSpriteCombat(Player.Sprite, Player.Position);
+                DrawSpriteCombat(CurrentWeapon.AttackSprite, Player.Position);
             }
 
         }
@@ -365,11 +365,11 @@ namespace Ohoy_Text_Version
             {
                 ConsoleColor? color = CurrentEnemy.IsAttacked ? ConsoleColor.DarkBlue : null;
 
-                DrawSprite(CurrentEnemy.IdleSprite, CurrentEnemy.Position, color);
+                DrawSpriteCombat(CurrentEnemy.IdleSprite, CurrentEnemy.Position, color);
             }
             else
             {
-                DrawSprite(CurrentEnemy.AttackSprites[CurrentEnemy.CurrentAttackIndex], CurrentEnemy.Position);
+                DrawSpriteCombat(CurrentEnemy.AttackSprites[CurrentEnemy.CurrentAttackIndex], CurrentEnemy.Position);
             }
         }
 
