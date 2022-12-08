@@ -461,6 +461,7 @@ namespace Ohoy_Text_Version
                     DrawEnemy();
                 }
             }
+            DamageDirection();
         }
 
         static void SeaweedAI()
@@ -478,6 +479,7 @@ namespace Ohoy_Text_Version
                     DrawEnemy();
                 }
             }
+            DamageDirection();
         }
 
         static void BatAI()
@@ -515,6 +517,7 @@ namespace Ohoy_Text_Version
                     DrawEnemy();
                 }
             }
+            DamageDirection();
         }
 
         static void MimicAI()
@@ -558,6 +561,7 @@ namespace Ohoy_Text_Version
                     DrawEnemy();
                 }
             }
+            DamageDirection();
         }
 
         static void GolemAI()
@@ -590,6 +594,7 @@ namespace Ohoy_Text_Version
                     DrawEnemy();
                 }
             }
+            DamageDirection();
         }
 
         static void GiantCrabAI()
@@ -654,6 +659,7 @@ namespace Ohoy_Text_Version
                     }
                 }
             }
+            DamageDirection();
         }
 
         #endregion
@@ -666,12 +672,12 @@ namespace Ohoy_Text_Version
                 CurrentEnemy.HP = CurrentEnemy.HP - CurrentWeapon.Damage;
                 DrawCombat();
             }
-            else if (!Player.IsAttacking && Player.IsAttacked && CurrentEnemy.IsAttacking && IsPlayerCollidingWithEnemySprite())
+            else if (!Player.IsAttacking && Player.IsAttacked && CurrentEnemy.IsAttacking && IsPlayerBodyCollidingWithEnemySprite())
             {
                 Player.HP = Player.HP - CurrentEnemy.Damage;
                 DrawCombat();
             }
-            else if (!Player.IsAttacking && !Player.IsAttacked && CurrentEnemy.IsAttacking && IsPlayerCollidingWithEnemySprite())
+            else if (!Player.IsAttacking && !Player.IsAttacked && CurrentEnemy.IsAttacking && IsPlayerBodyCollidingWithEnemySprite())
             {
                 Player.HP = Player.HP - CurrentEnemy.Damage;
                 DrawCombat();
