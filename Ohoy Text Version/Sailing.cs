@@ -661,7 +661,7 @@ namespace Ohoy_Text_Version
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
-            string title = "OHOY! - A Text-Based Exploration Prototype";
+            string title = "OHOY! - A Text-Based Prototype";
             Console.SetCursorPosition((Console.WindowWidth - title.Length) / 2, Console.WindowHeight / 2);
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Print(title);
