@@ -144,9 +144,11 @@ namespace Ohoy_Text_Version
 
         static bool ShouldQuit;
 
-        static bool treasureIslandDeclared = false;
+        static bool TreasureIslandDeclared = false;
 
         static bool OnTreasureIsland;
+
+        static bool FirstCombat;
         static void LoadData()
         {
             //Load IslandNames
@@ -240,7 +242,9 @@ namespace Ohoy_Text_Version
             //Initialize The Map
             AsciiSeaMap = new Map(500, 250);
 
-            treasureIslandDeclared = false;
+            TreasureIslandDeclared = false;
+
+            FirstCombat = false;
 
             //Initialize the FogOfWar
             AsciiSeaMap.FogOfWar = new Map(1000, 500).FogOfWar;
@@ -694,6 +698,7 @@ namespace Ohoy_Text_Version
             Console.ReadKey();
         }
         #endregion
+
         static void PresentQuitScreen()
         {
             Console.BackgroundColor = ConsoleColor.Black;
@@ -833,9 +838,9 @@ namespace Ohoy_Text_Version
                 }
                 else if (pressedKey == ConsoleKey.P && DoesOverlapIsland(mapShipCenter, 4, out Island portingIsland))
                 {
-                    if (!treasureIslandDeclared)
+                    if (!TreasureIslandDeclared)
                     {
-                        treasureIslandDeclared = DeclareTreasureIsland(portingIsland);
+                        TreasureIslandDeclared = DeclareTreasureIsland(portingIsland);
                     }
 
                     OnTreasureIsland = portingIsland == AsciiSeaMap.TreasureIsland;
