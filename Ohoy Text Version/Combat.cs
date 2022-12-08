@@ -829,7 +829,7 @@ namespace Ohoy_Text_Version
                     //Exit Game
                     if (pressedKey == ConsoleKey.Escape)
                     {
-                        break;
+                        return false;
                     }
                 }
 

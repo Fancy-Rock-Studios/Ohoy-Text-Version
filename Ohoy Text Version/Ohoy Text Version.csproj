@@ -52,6 +52,7 @@
     <None Remove="Sprites\Weapons\FlintlockIdle.txt" />
     <None Remove="Text\CardinalClueSnippets.txt" />
     <None Remove="Text\IslandNames.txt" />
+    <None Remove="Text\LoseText.txt" />
     <None Remove="Text\Quit.txt" />
     <None Remove="Text\Story.txt" />
     <None Remove="Text\Tutorial.txt" />
@@ -192,6 +193,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Text\IslandNames.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Text\LoseText.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Text\Quit.txt">

@@ -989,13 +989,17 @@ namespace Ohoy_Text_Version
         /// </summary>
         static void PresentGameOverScreen()
         {
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine("GAME OVER. You have been slain by the dangerous enemies of the ASCII-Sea. Your mother would be really disappointed in you, if she even showed up to your funeral.");
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine($"{CurrentEnemy.Hint}");
+            Console.Clear();
+            CurrentScreen.Clear();
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            string[] LoseText = File.ReadAllLines("Text/LoseText.txt");
+            Console.SetCursorPosition(0, Console.WindowHeight / 3);
+            Print(LoseText[0]);
+            Console.SetCursorPosition(0, Console.WindowHeight / 3 + 2);
+            Print(CurrentEnemy.Hint);
+            Console.SetCursorPosition(Console.WindowWidth / 3, Console.WindowHeight / 3 + 4);
+            Print(LoseText[1]);
         }
         static void Main(string[] args)
         {
@@ -1025,8 +1029,9 @@ namespace Ohoy_Text_Version
                 }
                 else
                 {
+                    Console.BackgroundColor = ConsoleColor.Black;
                     PresentGameOverScreen();
-
+                    Console.ReadKey();
                 }
             }
         }
