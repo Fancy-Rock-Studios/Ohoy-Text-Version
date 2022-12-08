@@ -91,8 +91,8 @@ namespace Ohoy_Text_Version
             GiantCrab.AttackTime = TimeSpan.FromSeconds(2);
             GiantCrab.MovementTime = TimeSpan.FromSeconds(0.5);
             GiantCrab.Name = "The Giant Crab";
-            GiantCrab.HP = 1500;
-            GiantCrab.Damage = 40;
+            GiantCrab.HP = 1750;
+            GiantCrab.Damage = 80;
             GiantCrab.Hint = "The Giant Crab is the most powerful and dangerous enemy in the ASCII-Sea. Weaken it with well aimed shots from your flintlock, then go in for the kill!";
 
             Seaweed = new Enemy();
@@ -101,8 +101,8 @@ namespace Ohoy_Text_Version
             Seaweed.AttackTime = TimeSpan.FromSeconds(1);
             Seaweed.MovementTime = TimeSpan.FromSeconds(1.2);
             Seaweed.Name = "Slimy Seaweed";
-            Seaweed.HP = 450;
-            Seaweed.Damage = 20;
+            Seaweed.HP = 500;
+            Seaweed.Damage = 35;
             Seaweed.Hint = "The Seaweed is the only stationary enemy in the ASCII-Sea. Avoid getting slapped by it, and you'll be fine.";
 
             Bat = new Enemy();
@@ -111,8 +111,8 @@ namespace Ohoy_Text_Version
             Bat.AttackTime = TimeSpan.FromSeconds(1);
             Bat.MovementTime = TimeSpan.FromSeconds(0.2);
             Bat.Name = "Ferocious Bat";
-            Bat.HP = 100;
-            Bat.Damage = 10;
+            Bat.HP = 105;
+            Bat.Damage = 15;
             Bat.Hint = "The Bat is the quickest, but weakest enemy in the ASCII-Sea. Try to fight fire with fire, by using a quick weapon, or use the slow but powerful Boat Axe for a quick kill!";
 
             Mimic = new Enemy();
@@ -121,8 +121,8 @@ namespace Ohoy_Text_Version
             Mimic.AttackTime = TimeSpan.FromSeconds(1.3);
             Mimic.MovementTime = TimeSpan.FromSeconds(1.3);
             Mimic.Name = "Sneaky Mimic";
-            Mimic.HP = 750;
-            Mimic.Damage = 30;
+            Mimic.HP = 800;
+            Mimic.Damage = 50;
             Mimic.Hint = "The Mimic is a slow, but devious opponent. The Boat Axe is a good choice against this fiend, but don't get caught off guard by it!";
 
             Skeleton = new Enemy();
@@ -143,8 +143,8 @@ namespace Ohoy_Text_Version
             StoneGolem.AttackTime = TimeSpan.FromSeconds(3);
             StoneGolem.MovementTime = TimeSpan.FromSeconds(3);
             StoneGolem.Name = "Mighty Stone Golem";
-            StoneGolem.HP = 1500;
-            StoneGolem.Damage = 40;
+            StoneGolem.HP = 1750;
+            StoneGolem.Damage = 80;
             StoneGolem.Hint = "The Golem is a slow but powerful opponent. While he cannot move around, his attacks are still deadly. Stay cautious.";
         }
 
