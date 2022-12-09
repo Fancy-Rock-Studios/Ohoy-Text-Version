@@ -1039,7 +1039,7 @@ namespace Ohoy_Text_Version
                 PresentTitleScreen();
                 PresentStoryScreen();
                 PresentTutorialScreen();
-
+                Console.Clear();
                 bool foundTreasure = DoGameplayLoop();
                 if (ShouldQuit)
                 {

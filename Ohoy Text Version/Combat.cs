@@ -699,8 +699,6 @@ namespace Ohoy_Text_Version
 
             //Prepare Console
             Console.CursorVisible = false;
-            Console.SetWindowSize(ArenaWidth, ArenaHeight);
-            Console.SetBufferSize(ArenaWidth, ArenaHeight);
             Console.BackgroundColor = ArenaBackgroundColor;
             Console.Clear();
 
