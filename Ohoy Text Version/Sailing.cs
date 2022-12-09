@@ -243,8 +243,6 @@ namespace Ohoy_Text_Version
 
             TreasureIslandDeclared = false;
 
-            FirstCombat = false;
-
             //Initialize the FogOfWar
             AsciiSeaMap.FogOfWar = new Map(1000, 500).FogOfWar;
             for (int fogY = 0; fogY < AsciiSeaMap.Height; fogY++)
