@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Threading;
 
@@ -148,8 +149,45 @@ namespace Ohoy_Text_Version
 
         static bool OnTreasureIsland;
 
+        public static bool IsOSPlatform(System.Runtime.InteropServices.OSPlatform osPlatform)
+        {
+            if (osPlatform == System.Runtime.InteropServices.OSPlatform.OSX)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         static void LoadData()
         {
+            //Initialize Camera
+            PlayerCamera = new Camera
+            {
+                Width = 149,
+                Height = 50,
+                Position = new Point(0, 0),
+            };
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                Console.Clear();
+                Console.CursorVisible = false;
+                Console.WriteLine("Please maximize WindowSize before proceeding.");
+                Console.WriteLine("Press any key to start the game!");
+                Console.ReadKey();
+                Console.Clear();
+            }
+            else
+            {
+                //Initialize Console
+                Console.Clear();
+                Console.SetWindowSize(PlayerCamera.Width + 1, PlayerCamera.Height);
+                Console.SetBufferSize(PlayerCamera.Width + 1, PlayerCamera.Height);
+                Console.CursorVisible = false;
+            }
+
             //Load IslandNames
             IslandNames = File.ReadAllLines("Text/IslandNames.txt");
 
@@ -252,21 +290,6 @@ namespace Ohoy_Text_Version
                     AsciiSeaMap.FogOfWar[fogX, fogY] = true;
                 }
             }
-
-
-            //Initialize Camera
-            PlayerCamera = new Camera
-            {
-                Width = 149,
-                Height = 50,
-                Position = new Point(0, 0),
-            };
-
-            //Initialize Console
-            Console.Clear();
-            Console.SetWindowSize(PlayerCamera.Width + 1, PlayerCamera.Height);
-            Console.SetBufferSize(PlayerCamera.Width + 1, PlayerCamera.Height);
-            Console.CursorVisible = false;
 
             //Initialize Screens 
             CurrentScreen = new Screen(PlayerCamera.Width, PlayerCamera.Height);

@@ -963,14 +963,14 @@ namespace Ohoy_Text_Version
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine();
-                    Console.WriteLine("YARRRGH! You have emerged victorious! You have recieved a clue for your brave actions during combat!");
+                    Console.WriteLine("Yarrrgh! You have emerged victorious! For slaying the enemy, you receive a clue!");
                 }
                 else
                 {
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine();
-                    Console.WriteLine("YARRRGH! You have slain King Crab, the Guardian of the Treasure! Victory is yours!");
+                    Console.WriteLine("Yarrrgh! You have slain King Crab, the Guardian of the Treasure! Victory is yours!");
                 }
                 Console.ReadKey(true);
                 return true;
