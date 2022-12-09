@@ -838,8 +838,7 @@ namespace Ohoy_Text_Version
                 }
 
                 //Update Game Objects
-                long elapsedTicks = frameStopwatch.ElapsedTicks;
-                TimeSpan elapsed = new TimeSpan(elapsedTicks);
+                TimeSpan elapsed = frameStopwatch.Elapsed;
                 frameStopwatch.Restart();
 
 
