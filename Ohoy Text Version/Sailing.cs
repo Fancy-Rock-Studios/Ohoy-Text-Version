@@ -148,7 +148,6 @@ namespace Ohoy_Text_Version
 
         static bool OnTreasureIsland;
 
-        static bool FirstCombat;
         static void LoadData()
         {
             //Load IslandNames
