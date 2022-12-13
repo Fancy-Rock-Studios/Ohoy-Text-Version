@@ -784,6 +784,33 @@ namespace Ohoy_Text_Version
             }
 
         }
+
+        static void PresentKeyScreen()
+        {
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Clear();
+            while (true)
+            {
+                string[] keyText = File.ReadAllLines("Text/KeyScreen.txt");
+                for (int i = 0; i < keyText.Length; i++)
+                {
+                    Console.SetCursorPosition(Console.WindowWidth / 3, (Console.WindowHeight / 5) + i);
+                    Print(keyText[i]);
+                }
+                Console.SetCursorPosition(Console.WindowWidth / 3, (Console.WindowHeight / 2) + 10);
+                Console.WriteLine("Press ENTER to return to the ASCII-Sea!");
+                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                ConsoleKey pressedKey = keyInfo.Key;
+                if (pressedKey == ConsoleKey.Enter)
+                {
+                    CurrentScreen.Clear();
+                    Console.Clear();
+                    return;
+                }
+            }
+        }
+
         /// <summary>
         /// This method houses the actual gameplay-loop, covering everything from sailing to fighting and clues.
         /// </summary>
@@ -854,6 +881,11 @@ namespace Ohoy_Text_Version
                 else if (pressedKey == ConsoleKey.J)
                 {
                     PresentJournalScreen(false);
+                    continue;
+                }
+                else if (pressedKey == ConsoleKey.K)
+                {
+                    PresentKeyScreen();
                     continue;
                 }
                 else if (pressedKey == ConsoleKey.P && DoesOverlapIsland(mapShipCenter, 4, out Island portingIsland))

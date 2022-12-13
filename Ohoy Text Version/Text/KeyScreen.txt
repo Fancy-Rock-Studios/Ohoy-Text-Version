@@ -1,0 +1,11 @@
+﻿Keys & Controls:
+
+Arrow Keys: Move
+J-Key: Open Journal
+P-Key: Port near Island
+
+C-Key: Cycle between weapons during Combat
+V-Key: Attack
+
+K-Key: Open the Keys & Controls Screen
+ESC-Key: Quit Game

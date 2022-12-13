@@ -91,9 +91,9 @@ namespace Ohoy_Text_Version
             GiantCrab.AttackTime = TimeSpan.FromSeconds(2);
             GiantCrab.MovementTime = TimeSpan.FromSeconds(0.5);
             GiantCrab.Name = "The Giant Crab";
-            GiantCrab.HP = 2000;
+            GiantCrab.HP = 1500;
             GiantCrab.Damage = 80;
-            GiantCrab.Hint = "The Giant Crab is the most powerful and dangerous enemy in the ASCII-Sea. Weaken it with well aimed shots from your flintlock, then go in for the kill!";
+            GiantCrab.Hint = "The Giant Crab is the most powerful and dangerous enemy in the ASCII-Sea. Be aware of your footing and strike it down with everything you got. Each weapon is useful here, so show him what you got, Captain! Er... Well, next time at least.";
 
             Seaweed = new Enemy();
             Seaweed.IdleSprite = ReadSpriteCombat("Sprites/Enemies/SeaweedIdle.txt");
@@ -103,7 +103,7 @@ namespace Ohoy_Text_Version
             Seaweed.Name = "Slimy Seaweed";
             Seaweed.HP = 750;
             Seaweed.Damage = 40;
-            Seaweed.Hint = "The Seaweed is the only stationary enemy in the ASCII-Sea. Avoid getting slapped by it, and you'll be fine.";
+            Seaweed.Hint = "The Seaweed cannot move, but that doesn't mean that it's harmless. It will lash out against you without hesitation! Use your boat axe and flintlock to weaken it!";
 
             Bat = new Enemy();
             Bat.IdleSprite = ReadSpriteCombat("Sprites/Enemies/Bat.txt");
@@ -113,7 +113,7 @@ namespace Ohoy_Text_Version
             Bat.Name = "Ferocious Bat";
             Bat.HP = 110;
             Bat.Damage = 15;
-            Bat.Hint = "The Bat is the quickest, but weakest enemy in the ASCII-Sea. Try to fight fire with fire, by using a quick weapon, or use the slow but powerful Boat Axe for a quick kill!";
+            Bat.Hint = "The Bat is the quickest, but weakest enemy in the ASCII-Sea. Try using a quick weapon for quicker and frequent hits, or the boat axe for a quick and powerful strike.";
 
             Mimic = new Enemy();
             Mimic.IdleSprite = ReadSpriteCombat("Sprites/Enemies/MimicIdle.txt");
@@ -133,7 +133,7 @@ namespace Ohoy_Text_Version
             Skeleton.Name = "Undead Skeleton";
             Skeleton.HP = 250;
             Skeleton.Damage = 30;
-            Skeleton.Hint = "The Skeleton uses a Cutlass to fight you. Keep this in mind, as you fight it. Know your tools, and slay it!";
+            Skeleton.Hint = "The Skeleton uses a Cutlass to fight you. Keep this in mind, as you fight it. Know thy tools, and slay it!";
 
             StoneGolem = new Enemy();
             StoneGolem.IdleSprite = ReadSpriteCombat("Sprites/Enemies/StoneGolemIdle.txt");
@@ -157,7 +157,7 @@ namespace Ohoy_Text_Version
             BoatAxe.Ammo = 1;
             BoatAxe.Damage = 50;
             BoatAxe.Name = "Boat Axe";
-            BoatAxe.Description = "This weapon has some heavy strength, but it's speed is sluggish, and will leave you vulnerable.";
+            BoatAxe.Description = "This weapon has some power, but it's speed is sluggish, and will leave you vulnerable.";
 
             Dagger = new Weapon();
             Dagger.IdleSprite = ReadSpriteCombat("Sprites/Weapons/DaggerIdle.txt");
@@ -166,7 +166,7 @@ namespace Ohoy_Text_Version
             Dagger.Ammo = 1;
             Dagger.Damage = 10;
             Dagger.Name = "Rusty Dagger";
-            Dagger.Description = "A dagger, covered in rust. It won't hurt much, but you'll be able to hit quickly.";
+            Dagger.Description = "The speciality of the dagger is the ability to get in a good amount of small hits in rapid succession.";
 
             Cutlass = new Weapon();
             Cutlass.IdleSprite = ReadSpriteCombat("Sprites/Weapons/CutlassIdle.txt");
@@ -175,16 +175,16 @@ namespace Ohoy_Text_Version
             Cutlass.Ammo = 1;
             Cutlass.Damage = 30;
             Cutlass.Name = "Ye Olde Cutlass";
-            Cutlass.Description = "A classic weapon, and a trusty choice in defeating your opponents.";
+            Cutlass.Description = "This cutlass was handed down to you from generations of your family. Unfortunately, it's a basic weapon.";
 
             Flintlock = new Weapon();
             Flintlock.IdleSprite = ReadSpriteCombat("Sprites/Weapons/FlintlockIdle.txt");
             Flintlock.AttackSprite = ReadSpriteCombat("Sprites/Weapons/FlintlockAttack.txt");
             Flintlock.AttackTime = TimeSpan.FromSeconds(1);
             Flintlock.Ammo = 1;
-            Flintlock.Damage = 75;
+            Flintlock.Damage = 100;
             Flintlock.Name = "Sinclair's Flintlock";
-            Flintlock.Description = "A flintlock pistol, taken from the corpse of your rival, Sinclair. It only has one bullet.";
+            Flintlock.Description = "This flintlock was taken from the corpse of your rival, Captain Sinclair Tammeraut. You only have one shot. Use it wisely.";
         }
 
         static void InitializePlayer()
@@ -243,7 +243,7 @@ namespace Ohoy_Text_Version
             }
             Console.WriteLine();
             Console.WriteLine(CurrentWeapon.Description);
-            Console.WriteLine("C Key: Cycle/Switch Weapons     V Key: Attack");
+            Console.WriteLine("C Key: Cycle Weapons     V Key: Attack");
             Console.WriteLine("Arrow Keys: Move");
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------------------------------------");
 
