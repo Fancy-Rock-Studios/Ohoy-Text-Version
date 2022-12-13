@@ -91,7 +91,7 @@ namespace Ohoy_Text_Version
             GiantCrab.AttackTime = TimeSpan.FromSeconds(2);
             GiantCrab.MovementTime = TimeSpan.FromSeconds(0.5);
             GiantCrab.Name = "The Giant Crab";
-            GiantCrab.HP = 1500;
+            GiantCrab.HP = 1250;
             GiantCrab.Damage = 80;
             GiantCrab.Hint = "The Giant Crab is the most powerful and dangerous enemy in the ASCII-Sea. Be aware of your footing and strike it down with everything you got. Each weapon is useful here, so show him what you got, Captain! Er... Well, next time at least.";
 
@@ -101,7 +101,7 @@ namespace Ohoy_Text_Version
             Seaweed.AttackTime = TimeSpan.FromSeconds(1);
             Seaweed.MovementTime = TimeSpan.FromSeconds(1.2);
             Seaweed.Name = "Slimy Seaweed";
-            Seaweed.HP = 750;
+            Seaweed.HP = 500;
             Seaweed.Damage = 40;
             Seaweed.Hint = "The Seaweed cannot move, but that doesn't mean that it's harmless. It will lash out against you without hesitation! Use your boat axe and flintlock to weaken it!";
 
@@ -121,7 +121,7 @@ namespace Ohoy_Text_Version
             Mimic.AttackTime = TimeSpan.FromSeconds(1.3);
             Mimic.MovementTime = TimeSpan.FromSeconds(1.3);
             Mimic.Name = "Sneaky Mimic";
-            Mimic.HP = 850;
+            Mimic.HP = 750;
             Mimic.Damage = 50;
             Mimic.Hint = "The Mimic is a slow, but devious opponent. The Boat Axe is a good choice against this fiend, but don't get caught off guard by it!";
 
@@ -143,7 +143,7 @@ namespace Ohoy_Text_Version
             StoneGolem.AttackTime = TimeSpan.FromSeconds(3);
             StoneGolem.MovementTime = TimeSpan.FromSeconds(3);
             StoneGolem.Name = "Mighty Stone Golem";
-            StoneGolem.HP = 1250;
+            StoneGolem.HP = 800;
             StoneGolem.Damage = 50;
             StoneGolem.Hint = "The Golem is a slow but powerful opponent. While he cannot move around, his attacks are still deadly. Stay cautious.";
         }
@@ -579,7 +579,7 @@ namespace Ohoy_Text_Version
                     CurrentEnemy.IsAttacking = true;
                     DrawEnemy();
                 }
-                if (attacking == 3 && StoneGolem.HP < 750)
+                if (attacking == 3 && StoneGolem.HP < 500)
                 {
                     ClearEnemy();
                     CurrentEnemy.CurrentAttackIndex = 1;

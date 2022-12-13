@@ -232,7 +232,7 @@ namespace Ohoy_Text_Version
         {
             while (true)
             {
-                Point islandPoint = new Point(random.Next(AsciiSeaMap.Width - 20), random.Next(AsciiSeaMap.Height - 20));
+                Point islandPoint = new Point(random.Next(AsciiSeaMap.Width - 30), random.Next(AsciiSeaMap.Height - 30));
                 if (!(islandPoint.X > PlayerShip.Position.X + PlayerShip.ShipCenter.X - 20 && islandPoint.X < PlayerShip.Position.X + PlayerShip.ShipCenter.X + 5 && islandPoint.Y > PlayerShip.Position.Y + PlayerShip.ShipCenter.Y - 20 && islandPoint.Y < PlayerShip.Position.Y + PlayerShip.ShipCenter.Y + 5))
                 {
                     bool doesOverlap = DoesOverlapIsland(islandPoint, 30, out _);
