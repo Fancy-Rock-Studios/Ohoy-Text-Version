@@ -961,6 +961,7 @@ namespace Ohoy_Text_Version
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine("Yarrrgh! You have emerged victorious! For slaying the enemy, you receive a clue!");
+                    Console.WriteLine("Press Enter to continue!");
                 }
                 else
                 {
@@ -968,9 +969,19 @@ namespace Ohoy_Text_Version
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine("Yarrrgh! You have slain King Crab, the Guardian of the Treasure! Victory is yours!");
+                    Console.WriteLine("Press Enter to continue!");
+
                 }
-                Console.ReadKey(true);
-                return true;
+
+                while (true)
+                {
+                    ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                    ConsoleKey pressedKey = keyInfo.Key;
+                    if (pressedKey == ConsoleKey.Enter)
+                    {
+                        return true;
+                    }
+                }
             }
         }
     }
